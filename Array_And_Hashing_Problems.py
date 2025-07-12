@@ -53,3 +53,19 @@ class Solution:
 
 test=Solution()
 print(test.twoSum([3,4,5,6],7))
+
+#Group_Anagram
+from collections import defaultdict
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        sol=defaultdict(list)
+        for s in strs:
+            count=[0]*26
+            for c in s:
+                count[ord(c)-ord("a")]+=1
+
+            sol[tuple(count)].append(s)
+        return list(sol.values())
+
+test= Solution()
+print(test.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
