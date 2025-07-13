@@ -69,3 +69,30 @@ class Solution:
 
 test= Solution()
 print(test.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
+
+
+#Top_k_frequent_nums
+from typing import List
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        hash_map = {}
+        for num in nums:
+            if num in hash_map:
+                hash_map[num] += 1
+            else:
+                hash_map[num] = 1
+        #bucket_sorting_with_a_trick
+
+        res_list = [[] for _ in range(len(nums) + 1)]
+        for value, freq in hash_map.items():
+            res_list[freq].append(value)
+
+        res = []
+        for i in range(len(nums), 0, -1):  # <- fixed this
+            for num in res_list[i]:    #it skips the empty lists
+                res.append(num)
+                if len(res) == k:
+                    return res
+test = Solution()
+print(test.topKFrequent([1, 1, 1, 2, 2, 3], 2))
+print(test.topKFrequent([4, 5, 6, 7], 2))
