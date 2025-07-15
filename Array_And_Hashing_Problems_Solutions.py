@@ -54,7 +54,7 @@ class Solution:
 test=Solution()
 print(test.twoSum([3,4,5,6],7))
 
-#Group_Anagram
+#3.Group_Anagram
 from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -71,7 +71,7 @@ test= Solution()
 print(test.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
 
 
-#Top_k_frequent_nums
+#4.Top_k_frequent_nums
 from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -96,3 +96,32 @@ class Solution:
 test = Solution()
 print(test.topKFrequent([1, 1, 1, 2, 2, 3], 2))
 print(test.topKFrequent([4, 5, 6, 7], 2))
+
+#5.Encode and Decode Strings
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        s=""
+        for string in strs:
+            s+=str(len(string))+"#"+string
+        return s
+        
+
+    def decode(self, s: str) -> List[str]:
+        res=[]
+        i=0
+        while i <len(s):
+            j=i
+            while s[j]!="#":
+                j+=1
+            length=int(s[i:j])
+            res.append(s[j+1:j+1+length])
+            i=j+1+length
+        return res
+test=Solution()
+
+secret_string=test.encode(["neet","code","love","you"])
+
+print(secret_string)
+
+original_string=test.decode(secret_string)
