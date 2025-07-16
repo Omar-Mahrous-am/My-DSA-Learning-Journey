@@ -39,6 +39,9 @@ t = "carrace"
 test=Solution()
 print(test.isAnagram(s,t))
 
+
+#3.two sums
+
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         check_map={}
@@ -54,7 +57,7 @@ class Solution:
 test=Solution()
 print(test.twoSum([3,4,5,6],7))
 
-#3.Group_Anagram
+#4.Group_Anagram
 from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -71,7 +74,7 @@ test= Solution()
 print(test.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
 
 
-#4.Top_k_frequent_nums
+#5.Top_k_frequent_nums
 from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -97,7 +100,7 @@ test = Solution()
 print(test.topKFrequent([1, 1, 1, 2, 2, 3], 2))
 print(test.topKFrequent([4, 5, 6, 7], 2))
 
-#5.Encode and Decode Strings
+#6.Encode and Decode Strings
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
@@ -127,7 +130,7 @@ print(secret_string)
 original_string=test.decode(secret_string)
 
 
-#6.Product of Array Except Self 
+#7.Product of Array Except Self 
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
