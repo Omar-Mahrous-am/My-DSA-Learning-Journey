@@ -155,6 +155,43 @@ sol = Solution()
 nums = [1, 2, 3, 4]
 result = sol.productExceptSelf(nums)
 print(result)
+
+#8.Valid Soduku
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rows_set=collections.defaultdict(set)
+        cols_set=collections.defaultdict(set)
+        squares_set=collections.defaultdict(set)
+
+
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] ==".":
+                    continue
+                if (board[r][c] in rows_set[r] or
+                 board[r][c] in cols_set[c] or 
+                 board[r][c] in squares_set[(r//3,c//3)] ):
+                    return False
+                rows_set[r].add(board[r][c])
+                cols_set[c].add(board[r][c])
+                squares_set[(r//3,c//3)].add(board[r][c])
+        return True
+board = [
+  ["5","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+]
+
+sol = Solution()
+print(sol.isValidSudoku(board))  # ✅ Expected: True
+
        
             
         
