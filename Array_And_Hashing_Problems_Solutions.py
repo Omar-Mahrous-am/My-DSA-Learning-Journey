@@ -192,6 +192,25 @@ board = [
 sol = Solution()
 print(sol.isValidSudoku(board))  # ✅ Expected: True
 
-       
+
+#9.Longest Consecutive Sequence
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums=set(nums)
+        max_seq=0
+        for num in nums:
             
+            if num-1 in nums:
+                continue
+            current_num=num
+            counter=1
+            while current_num+1 in nums:
+                current_num+=1
+                counter+=1
+            if counter >max_seq:
+                max_seq=counter
+        return max_seq
+nums = [100, 4, 200, 1, 3, 2]
+sol = Solution()
+print(sol.longestConsecutive(nums)) 
         
