@@ -1,1 +1,32 @@
+#1.Valid Parentheses
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s)%2!=0:
+            return False
 
+        mapping={  ')' : '('  ,  '}' : '{'  ,  ']' : '['}
+        stack=[]
+
+        for bracket in s:
+            #checking_for_mapping_keys"closed bracket"
+            if bracket in mapping:  
+                if stack and stack[-1]==mapping[bracket]:
+                    stack.pop()
+                else:
+                    #if it begins with closed bracket
+                    return False 
+            
+            #if it begins with open bracket
+            else:
+                stack.append(bracket)
+        #False if it is not empty       
+        return not stack
+
+                 
+
+
+
+
+                 
+        
+        
